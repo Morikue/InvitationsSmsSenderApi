@@ -1,0 +1,2 @@
+# InvitationsSmsSenderApi
+Тестовое задание
