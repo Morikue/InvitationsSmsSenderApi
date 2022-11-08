@@ -50,22 +50,22 @@ namespace SmsSenderApi.Helpers
 
         public ActionResult Build()
         {
-            if(this.error == null && this.errorCode == null) // OkResult
-            {
-                return new JsonResult(this.message) { StatusCode = okStatusCode };
-            }
-            else if (this.error == null  && this.errorCode != null) // IternalError
-            {
-                return new JsonResult(this.message) { StatusCode = statusCodeByErrorCode[this.errorCode]};
-            }
-            else // ValidationException
+            if(this.error != null && this.errorCode != null) // ValidationException
             {
                 return new JsonResult(new Dictionary<string, string>()
-                    {
-                        {"error", this.error },
-                        {"message", this.message}
-                    })
+                        {
+                            {"error", this.error },
+                            {"message", this.message}
+                        })
                 { StatusCode = statusCodeByErrorCode[this.errorCode] };
+            }
+            else if(this.error == null  && this.errorCode != null) // IternalError
+            {
+                return new JsonResult(this.message) { StatusCode = statusCodeByErrorCode[this.errorCode] };
+            }
+            else // OkResult
+            {
+                return new JsonResult(this.message) { StatusCode = okStatusCode };
             }
         }
     }
