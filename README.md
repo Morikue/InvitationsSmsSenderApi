@@ -1,2 +1,3 @@
-# InvitationsSmsSenderApi
-Тестовое задание. Гоголев Алексей Михайлович.
+# InvitationsSmsSenderApi 
+Тестовое задание.
+Гоголев Алексей Михайлович.
